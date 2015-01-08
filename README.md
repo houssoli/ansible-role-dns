@@ -1,22 +1,27 @@
-Role Name
-=========
+DNS
+===
 
-A brief description of the role goes here.
-
-Requirements
-------------
-
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+Setup DNS.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+List DNS servers to be inserted into template:
 
-Dependencies
-------------
+    dns_servers:
+      - 8.8.8.8
+      - 208.67.222.222
+      - 208.67.220.220
+      ...
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+List search domains to be inserted into the template. If empty or undefined, no search domains are added.
+
+    dns_search_domains:
+      - "com"
+      - "org"
+      - "acme.com"
+      ...
+
 
 Example Playbook
 ----------------
@@ -25,14 +30,9 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: sdoran.dns, dns_servers:['10.0.1.7', '192.168.7.3'] }
 
 License
 -------
 
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+MIT
