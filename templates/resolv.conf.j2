@@ -1,4 +1,7 @@
-search {{ search_domains }}
+{% if dns_search_domains %}
+search {% for tld in dns_search_domains %}{{ tld }}{% if not loop.last %} {% endif %}{% endfor %}
+{% endif %}
+
 {% for item in dns_servers %}
 nameserver {{ item }}
 {% endfor %}
