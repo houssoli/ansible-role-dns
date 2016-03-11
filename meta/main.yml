@@ -4,17 +4,16 @@ galaxy_info:
   description: "Setup DNS"
   company:
   license: MIT
-  min_ansible_version: 1.6
+  min_ansible_version: 1.9
 
   platforms:
   - name: EL
     versions:
       - 6
 
-  categories:
+  galaxy_tags:
     - networking
     - system
+    - dns
 
 dependencies: []
-
-version: 1.0
